@@ -1,0 +1,21 @@
+.home {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1500px;
+}
+
+.home__image {
+  width: 100%;
+  z-index: -1;
+  /* to get other itmes on top of it */
+  margin-bottom: -150px;
+  /* to give a nice fade in effect*/
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.home__row {
+  z-index: 1;
+  display: flex;
+  margin: 0 5px;
+}
