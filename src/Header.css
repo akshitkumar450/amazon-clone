@@ -43,6 +43,7 @@
 .header__optionLineTwo {
   font-size: 13px;
   font-weight: 800;
+  color: white;
 }
 
 .header__nav {
@@ -55,6 +56,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 10px;
+  color: white;
 }
 
 .header__optionBasket {
