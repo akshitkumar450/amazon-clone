@@ -1,6 +1,7 @@
 import React from 'react'
 import './Product.css'
 import { useStateValue } from './StateProvider'
+import history from './history'
 
 function Product({ title, image, price, rating, id }) {
     const [state, dispatch] = useStateValue()
@@ -18,6 +19,7 @@ function Product({ title, image, price, rating, id }) {
                 rating: rating
             }
         })
+        // history.push('/checkout')
     }
 
     return (

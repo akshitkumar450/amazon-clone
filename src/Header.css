@@ -61,8 +61,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
 }
 
 .header__basketCount {
   margin: 0 15px;
+  color: white;
 }
