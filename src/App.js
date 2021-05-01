@@ -7,6 +7,7 @@ import Checkout from './Checkout';
 import Login from './Login';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider'
+import Payment from './Payment';
 
 
 
@@ -14,7 +15,7 @@ function App() {
   const [state, dispatch] = useStateValue()
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
-      console.log('USER', authUser);
+      // console.log('USER', authUser);
       if (authUser) {
         //user just logged in /was logged in
         dispatch({
@@ -45,6 +46,10 @@ function App() {
           </Route>
           <Route path='/login' exact={true} >
             <Login />
+          </Route>
+          <Route path='/payment' exact={true} >
+            <Header />
+            <Payment />
           </Route>
         </Switch>
       </div>
