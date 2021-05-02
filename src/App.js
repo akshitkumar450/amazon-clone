@@ -9,7 +9,12 @@ import { auth } from './firebase';
 import { useStateValue } from './StateProvider'
 import Payment from './Payment';
 
+// using stripe 
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 
+// public stripe key
+const promise = loadStripe('pk_test_51ImcUYLSnLgEhz6V68nrjlYTQXrzBAiRlZMtXeku0sa9veL7pVeVlw4R7YGNeUfJW6p2DpilGHkyoNl1SF2v1eRu00CxHyIms1')
 
 function App() {
   const [state, dispatch] = useStateValue()
@@ -49,7 +54,10 @@ function App() {
           </Route>
           <Route path='/payment' exact={true} >
             <Header />
-            <Payment />
+            {/*to provide stripe to payment component (HOC) */}
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
           </Route>
         </Switch>
       </div>
