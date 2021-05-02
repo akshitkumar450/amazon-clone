@@ -24,6 +24,12 @@ const reducer = (state, action) => {
                 basket: [...state.basket, action.item]
             }
 
+        case 'EMPTY_BASKET':
+            return {
+                ...state,
+                basket: []
+            }
+
         case 'REMOVE_FROM_BASKET':
             // it will only finds the first item index for item to be removed
             const index = state.basket.findIndex((item) => item.id === action.item)

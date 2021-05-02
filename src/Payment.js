@@ -9,6 +9,7 @@ import CurrencyFormat from "react-currency-format";
 
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import axios from './axios'
+import { db } from './firebase'
 
 function Payment() {
     const history = useHistory()
@@ -43,7 +44,7 @@ function Payment() {
         getClientSecret()
     }, [state.basket])
 
-    console.log('secret-->>> 😎😎😎😎', clientSecret);
+    // console.log('secret-->>> 😎😎😎😎', clientSecret);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -57,10 +58,27 @@ function Payment() {
             }
         }).then(({ paymentIntent }) => {
             // paymentIntent = payment confirmation 
+
+            // adding the baket items to db for a particular user
+
+            db
+                .collection('users')
+                .doc(state.user?.uid)
+                .collection('orders')
+                .doc(paymentIntent.id)
+                .set({
+                    basket: state.basket,
+                    amount: paymentIntent.amount,
+                    createdAt: paymentIntent.created
+                })
+
             setSucceeded(true)
             setError(null)
             setProcessing(false)
 
+            dispatch({
+                type: 'EMPTY_BASKET'
+            })
             // to swap pages
             history.replace('/orders')
         })
