@@ -60,10 +60,10 @@ function Payment() {
             // paymentIntent = payment confirmation 
 
             // adding the baket items to db for a particular user
-
+            // console.log(paymentIntent);
             db
                 .collection('users')
-                .doc(state.user?.uid)
+                .doc(state.user?.uid) // a unique user id when logged in
                 .collection('orders')
                 .doc(paymentIntent.id)
                 .set({

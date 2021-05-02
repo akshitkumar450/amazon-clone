@@ -44,10 +44,12 @@ function Header() {
                     </div>
                 </Link>
 
-                <div className='header__option'>
-                    <span className='header__optionLineOne'>returns</span>
-                    <span className='header__optionLineTwo'>& orders</span>
-                </div>
+                <Link to='/orders'>
+                    <div className='header__option'>
+                        <span className='header__optionLineOne'>returns</span>
+                        <span className='header__optionLineTwo'>& orders</span>
+                    </div>
+                </Link>
                 <div className='header__option'>
                     <span className='header__optionLineOne'> your</span>
                     <span className='header__optionLineTwo'>prime</span>

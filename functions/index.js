@@ -43,3 +43,10 @@ exports.api = functions.https.onRequest(app);
 
 // our backend running on->
 // http://localhost:5001/clone-5e57f/us-central1/api
+
+// this server is running on local server
+
+// to deploy only backend
+
+// firebase deploy --only functions (use blaze plan)
+// go ->function ->get the request api and use that in axios instead of our local api 

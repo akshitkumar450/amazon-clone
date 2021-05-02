@@ -14,3 +14,6 @@ const firebaseConfig = {
 const firebaseApp = firebase.initializeApp(firebaseConfig)
 export const db = firebaseApp.firestore()
 export const auth = firebase.auth()
+
+// to deploy only hosting 
+// firebase deploy --only hosting
