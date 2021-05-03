@@ -1,13 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Checkout.css'
 import CheckoutProduct from './CheckoutProduct'
 import Subtotal from './Subtotal'
 import { useStateValue } from './StateProvider'
+import { db } from './firebase'
 
 
 function Checkout() {
     const [state, dispatch] = useStateValue()
     // console.log(state.basket);
+
+    // to get the basket items for a user
+    // const [basketitems, setBasketitems] = useState([])
+    // useEffect(() => {
+    //     if (state.user) {
+    //         db
+    //             .collection('users')
+    //             .doc(state.user?.uid)
+    //             .collection('basketItems')
+    //             .onSnapshot((snapshot) => (
+    //                 setBasketitems(snapshot.docs.map((doc) => ({
+    //                     id: doc.id,
+    //                     data: doc.data()
+    //                 })))
+    //             ))
+    //     } else {
+    //         setBasketitems([])
+    //     }
+    // }, [state.user, state.basket])
 
     return (
         <div className='checkout'>
@@ -39,6 +59,28 @@ function Checkout() {
                             )
                         })
                     }
+
+                    {/*
+                        basketitems.map((item, index) => {
+                            return (
+                                <div key={index}>
+                                    {
+                                        item.data.basket.map((el) => {
+                                            return (
+                                                <CheckoutProduct
+                                                    id={el.id}
+                                                    title={el.title}
+                                                    price={el.price}
+                                                    image={el.image}
+                                                    rating={el.rating}
+                                                />
+                                            )
+                                        })
+                                    }
+                                </div>
+                            )
+                        })
+                    */ }
                 </div>
             </div>
 

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Product.css'
 import { useStateValue } from './StateProvider'
 import history from './history'
+import { db } from './firebase'
 
 function Product({ title, image, price, rating, id }) {
     const [state, dispatch] = useStateValue()
@@ -21,6 +22,21 @@ function Product({ title, image, price, rating, id }) {
         })
         // history.push('/checkout')
     }
+
+    // to save the basket items for user 
+
+    // useEffect(() => {
+    //     if (state.user) {
+    //         db
+    //             .collection('users')
+    //             .doc(state.user?.uid)
+    //             .collection('basketItems')
+    //             .doc('def')
+    //             .set({
+    //                 basket: state.basket,
+    //             })
+    //     }
+    // }, [state.basket, state.user])
 
     return (
         <div className='product'>
